@@ -1,6 +1,6 @@
 # Database Glossary
 
-### Banque de données.
+### <center>Banque de données.</center>
 ```
  La banque de données permet de stocker toute les DataBase, c'est un enssemble de base de données.
 ```
