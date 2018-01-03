@@ -19,4 +19,5 @@ la BDD et un enssemble qui va permettre de stocker des données.
 le SGBD (Système de Gestion de Base de Donées) ou DBMS ( DataBase Management System) et un système de requêtage qui permet de manipuler les données.
 ```
 
-###
+### Les Tables
+![Shemat](http://www.pintire.com/wp-content/uploads/2017/09/dbms.png)
