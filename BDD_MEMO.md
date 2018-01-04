@@ -22,6 +22,7 @@ Ce dernier est généralement informatisé.
 ```
 Le SGBD (Système de Gestion de Base de Donées) ou DBMS ( DataBase Management System)
 est un système de requêtage qui permet de manipuler les données.
+il en éxiste plusieurs tel que MySQL, Oracle, MariaDB, SQLServer ect ..
 Il permet de gérer l'enssemble des fichiers de façon simplifier grâce à des requête.
 Il est composé en 4 grandes tâches.
 
@@ -46,5 +47,12 @@ Chaques tables possèdes deux fichiers.
 
 1. Un fichier schéma qui permet d'afficher le nombres de colonnes (columns) et de lignes que possèdes la tables.
 2. Un fichier qui contient l'enssemble des lignes d'enregistrements.
-
+```
 <!-- ![text alt](http://www.pintire.com/wp-content/uploads/2017/09/dbms.png) -->
+### Le processus de requête.
+
+| Requête SQL |
+|:-----------:|
+|Vérification des droits de l'utilisateur|
+|Envois la commande au moteur SQL qui manipule les fichiers et fait les traitement necessaire.|
+| Puis retourne le résultat de la requête|
