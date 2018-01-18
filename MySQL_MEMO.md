@@ -52,7 +52,7 @@ FROM Animal;
 #### Exemple :
  ```
 SELECT *
-FROM Animal 
+FROM Animal
 WHERE date_naissance < '2008-01-01'; -- Animaux nés avant 2008
 
 SELECT *
@@ -71,3 +71,38 @@ $bdd = new PDO('mysql:host=localhost;dbname=test', 'root','');
 ```
 $bdd->query('ma requête SQL');
 ```
+Ecrire et tester les requêtes suivantes :
+o
+Liste des boissons : SELECT * FROM `drinks`
+o
+Liste des ingrédients en manque (dont la quantité est nulle) : SELECT * FROM ingredients WHERE ISNULL (QteStock)
+o
+Liste des boissons dont le libellé contient le mot « café » : SELECT * FROM `drinks` WHERE `NAME` = "café"
+o
+Liste des boissons dont le prix est entre 0.40 et 0.70 euros : SELECT * FROM `drinks` WHERE `PRICE` > 140 AND `PRICE` < 180 // SELECT * FROM `drinks` WHERE `PRICE` BETWEEN 120 AND 170
+o
+Liste des ventes d’aujourd’hui classées par n° décroissant : SELECT * FROM `sale` WHERE DATE(DATE) = curdate() [ou CURRENT_DATE()] ORDER BY `ID` DESC
+o
+Liste des ingrédients (nom et qte nécesssaire) d’une boisson donnée : SELECT NAME_ING,Dose,Drinks_ID FROM `association` INNER JOIN ingredients ON association.Ingredients_ID = ingredients.ID WHERE Drinks_ID="CAF"
+o
+Liste des boissons disponibles (pour lesquelles les ingrédients sont dispo) // Der Question =====>
+o
+Liste des boissons vendues aujourd’hui : select NAME from `drinks` inner join sale on Drinks.ID = sale.Drinks_ID where DATE(DATE) = curdate()
+o
+Prix de la derniere boisson vendue : select PRICE from drinks ORDER BY ID LIMIT 1
+o
+Nombre de ventes de la boisson « CaféLong » : SELECT COUNT(Drinks_ID) FROM sale INNER JOIN drinks ON drinks.ID = Drinks_ID WHERE Drinks_ID ="CHO"
+o
+Rajouter la boisson « Café au lait » : : INSERT INTO `drinks` (`ID`, `NAME`, `PRICE`) VALUES ('CAL', 'Café au Lait', '250')
+o
+Rajouter 100 à la quantité en stock de l’ingrédient « sucre » : UPDATE `ingredients`
+SET `QteStock` = `QteStock`+ 100
+WHERE ID = 3
+o
+Augmenter de 0.10 euros le prix de toutes les boissons : UPDATE `drinks` SET `PRICE` = `PRICE` + 10
+
+Créer une nouvelle vente d’expresso avec 2 sucres : INSERT INTO `sale` (`ID`, `Drinks_ID`, `DATE`, `Qte_Sugar`) VALUES (NULL, 'CAF',NOW(), '2')
+o
+Supprimer cette vente : DELETE FROM `sale` WHERE `sale`.`ID` = 7 AND `sale`.`Drinks_ID` = 'CAF'; // OU // DELETE FROM `sale` WHERE `ID` ORDER BY `ID` DESC LIMIT 1
+
+Liste des boissons disponibles (pour lesquelles les ingrédients sont dispo) // Der Question
